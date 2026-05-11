@@ -1,6 +1,6 @@
 # Loan Management API
 
-Production-ready RESTful API built with Laravel for managing loan data, user authentication, and scalable backend operations.
+Production-ready RESTful API built with Laravel for managing loan data, repayment data, user authentication, and scalable backend operations.
 
 This project follows clean architecture principles using Repository Pattern and Service Layer to improve maintainability, scalability, and code organization.
 
@@ -12,6 +12,7 @@ This project follows clean architecture principles using Repository Pattern and 
 - User Registration & Login
 - Token-Based API Authentication
 - Loan CRUD Operations
+- Repayment CRUD Operations
 - Clean Architecture Structure
 - Repository Pattern
 - Service Layer
@@ -26,8 +27,8 @@ This project follows clean architecture principles using Repository Pattern and 
 
 | Technology      | Usage              |
 | --------------- | ------------------ |
-| PHP 8.3         | Backend Language   |
-| Laravel 12      | Framework          |
+| PHP 8.1         | Backend Language   |
+| Laravel 10      | Framework          |
 | MySQL           | Database           |
 | Laravel Sanctum | API Authentication |
 | Docker          | Containerization   |
@@ -77,6 +78,16 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 | GET    | /api/loans/{id} |
 | PUT    | /api/loans/{id} |
 | DELETE | /api/loans/{id} |
+
+## Repayments
+
+| Method | Endpoint             |
+| ------ | -------------------- |
+| GET    | /api/repayments      |
+| POST   | /api/repayments      |
+| GET    | /api/repayments/{id} |
+| PUT    | /api/repayments/{id} |
+| DELETE | /api/repayments/{id} |
 
 ---
 

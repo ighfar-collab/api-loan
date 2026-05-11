@@ -13,4 +13,8 @@ class Loan extends Model
         'status',
         'due_date'
     ];
+    public function repayments()
+{
+    return $this->hasMany(Repayment::class);
+}
 }
