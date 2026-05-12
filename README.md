@@ -20,6 +20,7 @@ This project follows clean architecture principles using Repository Pattern and 
 - API Resource Transformation
 - RESTful JSON Responses
 - Docker Support
+- PHPUnit Testing
 
 ---
 
@@ -91,7 +92,17 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 
 ---
 
+# Testing
+
+This project includes Unit Testing and Feature Testing using PHPUnit.
+
+## Run All Tests
+
+```bash
+php artisan test
+
 # 👨‍💻 Author
 
-Ighfar Ilaina  
+Ighfar Ilaina
 Backend Developer — Laravel & REST API
+```

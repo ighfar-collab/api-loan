@@ -23,4 +23,8 @@ class LoanService
     {
         return $this->loanRepository->create($data);
     }
+     public function calculateTotal($amount, $interestRate)
+    {
+        return $amount + ($amount * $interestRate / 100);
+    }
 }
