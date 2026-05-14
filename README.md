@@ -21,6 +21,7 @@ This project follows clean architecture principles using Repository Pattern and 
 - RESTful JSON Responses
 - Docker Support
 - PHPUnit Testing
+- Swagger/OpenAPI
 
 ---
 
@@ -98,7 +99,7 @@ This project includes Unit Testing and Feature Testing using PHPUnit.
 
 ## Run All Tests
 
-````bash
+```bash
 php artisan test
 
 tests/
@@ -111,11 +112,10 @@ tests/
 │   ├── LoanServiceTest.php
 │   └── RepaymentServiceTest.php
 
-## Swagger Documentation
+## Swagger/OpenAPI Documentation
 
 Generate Swagger docs:
 
-```bash
 php artisan l5-swagger:generate
 
 http://localhost:8000/api/documentation
@@ -124,4 +124,4 @@ http://localhost:8000/api/documentation
 
 Ighfar Ilaina
 Backend Developer — Laravel & REST API
-````
+```
