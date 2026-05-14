@@ -98,11 +98,30 @@ This project includes Unit Testing and Feature Testing using PHPUnit.
 
 ## Run All Tests
 
-```bash
+````bash
 php artisan test
+
+tests/
+├── Feature
+│   ├── AuthTest.php
+│   ├── LoanApiTest.php
+│   └── RepaymentApiTest.php
+│
+├── Unit
+│   ├── LoanServiceTest.php
+│   └── RepaymentServiceTest.php
+
+## Swagger Documentation
+
+Generate Swagger docs:
+
+```bash
+php artisan l5-swagger:generate
+
+http://localhost:8000/api/documentation
 
 # 👨‍💻 Author
 
 Ighfar Ilaina
 Backend Developer — Laravel & REST API
-```
+````

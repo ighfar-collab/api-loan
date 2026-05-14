@@ -1,0 +1,325 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Loan API",
+        "description": "Loan Management API Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User Login",
+                "operationId": "c70216c475678641e0ff0f135de07573",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "test@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login success"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User Register",
+                "operationId": "7a8a5989a84d5f951c8771b477a22fc9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Ighfar"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "ighfar@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register success"
+                    }
+                }
+            }
+        },
+        "/api/loans": {
+            "get": {
+                "tags": [
+                    "Loans"
+                ],
+                "summary": "Get Loans",
+                "operationId": "cdf47aee31a2c6e62d0e611ae777b5a7",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Loans"
+                ],
+                "summary": "Create loan",
+                "operationId": "7fd4075f78da372a7f1f71d137871ef1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "amount",
+                                    "interest_rate",
+                                    "due_date"
+                                ],
+                                "properties": {
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": 1000000
+                                    },
+                                    "interest_rate": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "due_date": {
+                                        "type": "string",
+                                        "example": "2026-12-01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Loan created"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/repayments": {
+            "get": {
+                "tags": [
+                    "Repayments"
+                ],
+                "summary": "Get all repayments",
+                "operationId": "d166791f7d49c6357309fba755bfd3e2",
+                "responses": {
+                    "200": {
+                        "description": "List repayments"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Repayments"
+                ],
+                "summary": "Create repayment",
+                "operationId": "96c0a9d4703c45b8fb1ff4849c1dbde0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "loan_id",
+                                    "amount_paid"
+                                ],
+                                "properties": {
+                                    "loan_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "amount_paid": {
+                                        "type": "integer",
+                                        "example": 500000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Repayment created"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/repayments/{id}": {
+            "get": {
+                "tags": [
+                    "Repayments"
+                ],
+                "summary": "Show repayment detail",
+                "operationId": "b8fc1da3ca13700f0c9199b989513c02",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Repayment ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Repayment detail"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Repayments"
+                ],
+                "summary": "Update repayment",
+                "operationId": "e1af1d8d12439da1aa43aa8e9d6ecd66",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": 700000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Repayment updated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Repayments"
+                ],
+                "summary": "Delete repayment",
+                "operationId": "00e47674a1b4ed48ea07c800deb22d66",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Repayment deleted"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Loans",
+            "description": "Loans"
+        },
+        {
+            "name": "Repayments",
+            "description": "Repayments"
+        }
+    ]
+}
